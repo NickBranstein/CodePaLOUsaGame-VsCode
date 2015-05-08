@@ -4,11 +4,11 @@ var del = require('del');
 var $ = require('gulp-load-plugins')();
 
 var paths = {
-	tscripts : { src : ['app/src/ts/*'], dest : 'app/build/js' },
-	scripts : { src : ['app/src/scripts/*'], dest : 'app/build/js' },
-	html: { src: 'app/src/*.html', dest: 'app/build' },
-	assets: { src: ['app/src/**/*.png', 'app/src/**/?(*.mp3|*.ogg)'], dest: 'app/build' },
-	open: 'app/build/index.html'
+	tscripts : { src : ['src/ts/*'], dest : 'build/js' },
+	scripts : { src : ['src/scripts/*'], dest : 'build/js' },
+	html: { src: 'src/*.html', dest: 'build' },
+	assets: { src: ['src/**/*.png', 'src/**/?(*.mp3|*.ogg)'], dest: 'build' },
+	open: 'build/index.html'
 };
 
 gulp.task('default', ['buildrun']);
@@ -16,7 +16,7 @@ gulp.task('default', ['buildrun']);
 // ** Running ** //
 gulp.task('run', function(){
 	$.connect.server({
-		root: './app/',
+		root: './',
 		port: 9999		
 	});
 	
@@ -68,5 +68,5 @@ gulp.task('scripts', function () {
 
 // ** Cleaning ** //
 gulp.task('clean', function(){
-	del(['app/build']);
+	del(['build']);
 });
